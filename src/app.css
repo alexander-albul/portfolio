@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Gilroy';
+  font-weight: 600;
+  src: url('./fonts/Gilroy-SemiBold.otf') format('opentype');
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
