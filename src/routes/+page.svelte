@@ -29,8 +29,8 @@ onMount(() => {
     {
       opacity: [0, 1],
 			transform: [
-				"translateX(0%) translateY(29%) scale(1.2) rotateX(47deg) rotateY(31deg) rotate(324deg)",
-				"translateX(0%) translateY(23%) scale(1.2) rotateX(47deg) rotateY(31deg) rotate(324deg)",
+				"translateX(0%) translateY(29%) scale(1) rotateX(47deg) rotateY(31deg) rotate(324deg)",
+				"translateX(0%) translateY(23%) scale(1) rotateX(47deg) rotateY(31deg) rotate(324deg)",
 			],
       filter: ["blur(10px)","blur(0px)"],
       duration: 700,
@@ -38,7 +38,7 @@ onMount(() => {
 	.add(
     '.content',
     {
-      translateY: ['-4%','0%'],
+      translateY: ['7%','0%'],
       filter: ["blur(10px)","blur(0px)"],
       opacity: [0, 1],
       duration: 600,
@@ -75,7 +75,7 @@ onMount(() => {
 
 
 <style>
-	:global(body){
+	main{
 		position: relative;
 		background: 
 		radial-gradient(
@@ -88,6 +88,7 @@ onMount(() => {
 		background-repeat: no-repeat;
 		font-family: "Gilroy", sans-serif;
 		color: white;
+		overflow: hidden;
 	}
 
 	h1{
@@ -111,39 +112,38 @@ onMount(() => {
 		width: 100%;
 		max-width: 1280px;
 		margin-inline: auto;
-    padding-inline: 40px;
+    	padding-inline: 40px;
 	}
 
 	.image-wrap{
 		height: 2000px;
-    perspective: 4000px;
+    	perspective: 4000px;
 		max-width: 100%;
-    perspective-origin: 100% 0;
+    	perspective-origin: 100% 0;
 	}
 	
-	
+	.in-perspective{
+		transform: translateX(0%) translateY(23%) scale(1) rotateX(47deg) rotateY(31deg) rotate(324deg);
+	}
+
 	.app{
-    position: relative;
+		position: relative;
 		display: flex;
 		gap: 1rem;
 		padding-block: .75rem;
 		padding-inline: .5rem 1rem;
-    width: 1500px;
-    aspect-ratio: 16 / 7;
-    background-color: rgba(255 255 255 / .2);
+		width: 1500px;
+		aspect-ratio: 16 / 7;
+		background-color: rgba(255 255 255 / .2);
 		border: 1px solid rgba(255 255 255 / .4);
-    backdrop-filter: blur(12px);
-    transform-origin: top left;
+		backdrop-filter: blur(12px);
+		transform-origin: top left;
 		transform-style: preserve-3d;
-    backface-visibility: hidden;
-    border-radius: 16px;
-    perspective: 3000px;
+		backface-visibility: hidden;
+		border-radius: 16px;
+		perspective: 3000px;
 		opacity: 0;
 	}
-
-	/* .app.in-perspective{
-    transform: translateX(0%) translateY(23%) scale(1.2) rotateX(47deg) rotateY(31deg) rotate(324deg);
-	} */
 
 	.sidebar{
 		width: 0%;
@@ -151,11 +151,12 @@ onMount(() => {
 	}
 
 	.content{
-		width: 100%;
+		width: calc(70% - 1rem);
 		background: white;
 		border-radius: .5rem;
 		position: relative;
 		opacity: 0;
+		transform-style: flat;
 	}	
 
 	img{
