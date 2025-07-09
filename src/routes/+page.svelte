@@ -62,7 +62,9 @@ onMount(() => {
 		</h1>
 	</section>
 	<section class="image-wrap">
-		<img alt="3d shape" src="https://i.imgur.com/lLboFQD.png"/>
+		<!-- <video alt="3d shape" src="deca.mp4" autoplay>
+			<track kind="captions"/>
+		</video> -->
 		<div class="app-wrap">	
 			<div class={["app", inPerspective && "in-perspective"]}>
 				<div class="sidebar"></div>
@@ -159,11 +161,12 @@ onMount(() => {
 		transform-style: flat;
 	}	
 
-	img{
+	video{
 		position: absolute;
 		top: -20%;
 		right: 10%;
 		width: 340px;
 		z-index: -1;
+		mix-blend-mode: lighten;
 	}
 </style>
