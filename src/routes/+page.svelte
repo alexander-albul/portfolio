@@ -28,30 +28,33 @@ onMount(() => {
     '.app',
     {
       opacity: [0, 1],
-			transform: [
-				"translateX(0%) translateY(29%) scale(1) rotateX(47deg) rotateY(31deg) rotate(324deg)",
-				"translateX(0%) translateY(23%) scale(1) rotateX(47deg) rotateY(31deg) rotate(324deg)",
-			],
+	transform: [
+		"translateX(0%) translateY(29%) scale(1) rotateX(47deg) rotateY(31deg) rotate(324deg)",
+		"translateX(0%) translateY(23%) scale(1) rotateX(47deg) rotateY(31deg) rotate(324deg)",
+	],
       filter: ["blur(10px)","blur(0px)"],
       duration: 700,
-    }, "<+=400")
-	.add(
-    '.content',
-    {
-      translateY: ['7%','0%'],
-      /* filter: ["blur(10px)","blur(0px)"], */
+    },)
+	.add('.content',
+    {	
+		transform: [
+		"translateZ(-300px)",
+		"translateZ(-0px)",
+
+	],
+      translateZ: ['-300px','0px'],
       opacity: [0, 1],
-      duration: 600,
-    })
+      duration: 700,
+    }, )
 });
 </script>
 
 
 
-<label>
+<!-- <label>
 	<input type="checkbox" bind:checked={inPerspective}/>
 	<span>Perspective</span>
-</label>
+</label> -->
 <main>
 	<section> 
 		<h1><span class="word title">Pages</span><br/>
@@ -62,7 +65,7 @@ onMount(() => {
 		</h1>
 	</section>
 	<section class="image-wrap">
-		<img alt="3d shape" src="deca.gif"/>
+		<img alt="3d shape" class="decaeder" src="deca.gif"/>
 		<div class="app-wrap">	
 			<div class={["app", inPerspective && "in-perspective"]}>
 				<div class="sidebar"></div>
@@ -129,10 +132,11 @@ onMount(() => {
 
 	.app{
 		position: relative;
+		left: 4%;
 		display: flex;
 		gap: 1rem;
 		padding-block: .75rem;
-		padding-inline: .5rem 1rem;
+		padding-inline: .5rem;
 		width: 1500px;
 		aspect-ratio: 16 / 7;
 		background-color: rgba(255 255 255 / .2);
@@ -147,12 +151,12 @@ onMount(() => {
 	}
 
 	.sidebar{
-		width: 0%;
+		width: 30%;
 		border-radius: .5rem;
 	}
 
 	.content{
-		width: calc(70% - 1rem);
+		width: 100%;
 		background: white;
 		border-radius: .5rem;
 		position: relative;
@@ -160,13 +164,13 @@ onMount(() => {
 		transform-style: flat;
 	}	
 
-	img{
+	.decaeder{
 		position: absolute;
-		top: -2%;
-		right: 1%;
-		width: 140px;
-		z-index: 2;
-		animation: bounce 2.5s cubic-bezier(0.65, 0, 0.35, 1) infinite forwards;
+		top: 1%;
+		left: 7%;
+		width: 150px;
+		z-index: -1;
+		animation: bounce 4s cubic-bezier(0.65, 0, 0.35, 1) infinite forwards;
 	}
 
 	@keyframes bounce {
