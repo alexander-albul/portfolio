@@ -39,7 +39,7 @@ onMount(() => {
     '.content',
     {
       translateY: ['7%','0%'],
-      filter: ["blur(10px)","blur(0px)"],
+      /* filter: ["blur(10px)","blur(0px)"], */
       opacity: [0, 1],
       duration: 600,
     })
@@ -62,9 +62,7 @@ onMount(() => {
 		</h1>
 	</section>
 	<section class="image-wrap">
-		<!-- <video alt="3d shape" src="deca.mp4" autoplay>
-			<track kind="captions"/>
-		</video> -->
+		<img alt="3d shape" src="deca.gif"/>
 		<div class="app-wrap">	
 			<div class={["app", inPerspective && "in-perspective"]}>
 				<div class="sidebar"></div>
@@ -118,6 +116,7 @@ onMount(() => {
 	}
 
 	.image-wrap{
+		position: relative;
 		height: 2000px;
     	perspective: 4000px;
 		max-width: 100%;
@@ -161,12 +160,18 @@ onMount(() => {
 		transform-style: flat;
 	}	
 
-	video{
+	img{
 		position: absolute;
-		top: -20%;
-		right: 10%;
-		width: 340px;
-		z-index: -1;
-		mix-blend-mode: lighten;
+		top: -2%;
+		right: 1%;
+		width: 140px;
+		z-index: 2;
+		animation: bounce 2.5s cubic-bezier(0.65, 0, 0.35, 1) infinite forwards;
+	}
+
+	@keyframes bounce {
+		50%{
+			transform: translateY(15%);
+		}
 	}
 </style>
