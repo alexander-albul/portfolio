@@ -1,8 +1,6 @@
 <script>
 	import { animate, stagger,createTimeline } from 'animejs';
 	import { onMount} from 'svelte'
-
-	let inPerspective = true
 	
 	const tl = createTimeline();
 
@@ -73,11 +71,9 @@ onMount(() => {
 		</h1>
 	</section>
 	<section class="image-wrap">
-		<video class="decaeder" src="deca-2.webm" muted autoplay loop>
-			<track kind="captions"/>
-		</video>
+		<img class="decaeder" alt="decaeder" src="deca.png"/>
 		<div class="app-wrap">	
-			<div class={["app", inPerspective && "in-perspective"]}>
+			<div class="app in-perspective">
 				<div class="sidebar">
 					
 				</div>
