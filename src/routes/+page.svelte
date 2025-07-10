@@ -56,7 +56,15 @@ onMount(() => {
 	<span>Perspective</span>
 </label> -->
 <main>
-	<section> 
+	<section>
+		<nav>
+			<a href="#">Alexander Albul</a>
+			<span>/</span>
+			<a href="#">Works</a>
+			<a href="#" style:margin-left="auto">Contact</a>
+		</nav>
+	</section>
+	<section id="hero-text">
 		<h1><span class="word title">Pages</span><br/>
 			{#each 'Система управления контентом'.split(" ") as item, i}
 				<span class="word">{item}</span>
@@ -65,10 +73,14 @@ onMount(() => {
 		</h1>
 	</section>
 	<section class="image-wrap">
-		<img alt="3d shape" class="decaeder" src="deca.gif"/>
+		<video class="decaeder" src="deca-2.webm">
+			<track kind="captions"/>
+		</video>
 		<div class="app-wrap">	
 			<div class={["app", inPerspective && "in-perspective"]}>
-				<div class="sidebar"></div>
+				<div class="sidebar">
+					
+				</div>
 				<div class="content"></div>
 			</div>
 		</div>
@@ -78,6 +90,38 @@ onMount(() => {
 
 
 <style>
+	/* Nav compontent */
+	@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+	
+	nav{
+		display: flex;
+		font-family: "Inter", sans-serif;
+		gap: 8px;
+		padding-block: 4rem;
+	}
+	
+	#hero-text{
+		padding-top: 4rem;
+	}
+
+	a, a:visited{
+		font-weight: 400;
+		color: inherit;
+		opacity: .8;
+		text-decoration: none;
+		transition: font-weight .3s;
+	}
+
+	span{
+		opacity: .8;
+	}
+	
+	a:hover{
+		font-weight: 600;
+		opacity: 1;
+	}
+	/* /Nav compontent */
+
 	main{
 		position: relative;
 		background: 
@@ -115,7 +159,7 @@ onMount(() => {
 		width: 100%;
 		max-width: 1280px;
 		margin-inline: auto;
-    	padding-inline: 40px;
+    	padding-inline: 80px;
 	}
 
 	.image-wrap{
@@ -132,7 +176,7 @@ onMount(() => {
 
 	.app{
 		position: relative;
-		left: 4%;
+		left: 1%;
 		display: flex;
 		gap: 1rem;
 		padding-block: .75rem;
@@ -167,10 +211,11 @@ onMount(() => {
 	.decaeder{
 		position: absolute;
 		top: 1%;
-		left: 7%;
+		left: 8%;
 		width: 150px;
-		z-index: -1;
+		z-index: 2;
 		animation: bounce 4s cubic-bezier(0.65, 0, 0.35, 1) infinite forwards;
+		filter: drop-shadow(1px 15px 10px rgba(184, 111, 206, 0.1))
 	}
 
 	@keyframes bounce {
