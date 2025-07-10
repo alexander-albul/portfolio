@@ -73,7 +73,7 @@ onMount(() => {
 		</h1>
 	</section>
 	<section class="image-wrap">
-		<video class="decaeder" src="deca-2.webm" autoplay>
+		<video class="decaeder" src="deca-2.webm" muted autoplay loop>
 			<track kind="captions"/>
 		</video>
 		<div class="app-wrap">	
