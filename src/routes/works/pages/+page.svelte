@@ -1,54 +1,51 @@
 <script>
-	import { animate, stagger,createTimeline } from 'animejs';
-	import { onMount} from 'svelte'
-	import deca from "$lib/assets/deca.png"
-	
+	import { animate, stagger, createTimeline } from "animejs";
+	import { onMount } from "svelte";
+	import deca from "$lib/assets/deca.png";
+
 	const tl = createTimeline();
 
+	onMount(() => {
+		const tl = createTimeline();
 
-onMount(() => {
-  const tl = createTimeline();
-
-  tl
-	.add(['.word', 'title'],
-    {
-      opacity: [0, 0.5],
-      filter: ["blur(10px)","blur(0px)"],
-      translateY: ['15%','0%'],
-      duration: 600,
-      delay: stagger(100)
-    })
-	.add('.title',
-    {
-      opacity: [0, 1],
-      duration: 600,
-    }, 0)
-	.add(
-    '.app',
-    {
-      opacity: [0, 1],
-	transform: [
-		"translateX(0%) translateY(29%) scale(1) rotateX(47deg) rotateY(31deg) rotate(324deg)",
-		"translateX(0%) translateY(23%) scale(1) rotateX(47deg) rotateY(31deg) rotate(324deg)",
-	],
-      filter: ["blur(10px)","blur(0px)"],
-      duration: 700,
-    },)
-	.add('.content',
-    {	
-		transform: [
-		"translateZ(-300px)",
-		"translateZ(-0px)",
-
-	],
-      translateZ: ['-300px','0px'],
-      opacity: [0, 1],
-      duration: 700,
-    }, )
-});
+		tl.add([".word", "title"], {
+			opacity: [0, 0.5],
+			filter: ["blur(10px)", "blur(0px)"],
+			translateY: ["15%", "0%"],
+			duration: 600,
+			delay: stagger(100),
+		})
+			.add(
+				".title",
+				{
+					opacity: [0, 1],
+					duration: 600,
+				},
+				0,
+			)
+			.add(".app", {
+				opacity: [0, 1],
+				transform: [
+					"translateX(0%) translateY(29%) scale(1) rotateX(47deg) rotateY(31deg) rotate(324deg)",
+					"translateX(0%) translateY(23%) scale(1) rotateX(47deg) rotateY(31deg) rotate(324deg)",
+				],
+				filter: ["blur(10px)", "blur(0px)"],
+				duration: 700,
+			})
+			.add(".content", {
+				transform: ["translateZ(-300px)", "translateZ(-0px)"],
+				translateZ: ["-300px", "0px"],
+				opacity: [0, 1],
+				duration: 700,
+			})
+			.add(".decaeder", {
+				opacity: [0, 1],
+				filter: ["blur(10px)", "blur(0px)"],
+				translateY: ["15%", "0%"],
+				duration: 600,
+			});
+	});
 </script>
-
-
 
 <!-- <label>
 	<input type="checkbox" bind:checked={inPerspective}/>
@@ -57,77 +54,75 @@ onMount(() => {
 <main>
 	<section>
 		<nav>
-			<a href="#">Alexander Albul</a>
+			<a href="/">Alexander Albul</a>
 			<span>/</span>
 			<a href="#">Works</a>
 			<a href="#" style:margin-left="auto">Contact</a>
 		</nav>
 	</section>
 	<section id="hero-text">
-		<h1><span class="word title">Pages</span><br/>
-			{#each 'Система управления контентом'.split(" ") as item, i}
+		<h1>
+			<span class="word title">Pages</span><br />
+			{#each "Система управления контентом".split(" ") as item, i}
 				<span class="word">{item}</span>
 				<span> </span>
 			{/each}
 		</h1>
 	</section>
 	<section class="image-wrap">
-		<img class="decaeder" alt="decaeder" src={deca}/>
-		<div class="app-wrap">	
+		<img class="decaeder" alt="decaeder" src={deca} />
+		<div class="app-wrap">
 			<div class="app in-perspective">
-				<div class="sidebar">
-					
-				</div>
+				<div class="sidebar"></div>
 				<div class="content"></div>
 			</div>
 		</div>
 	</section>
 </main>
 
-
-
 <style>
 	/* Nav compontent */
-	@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-	
-	nav{
+	@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+	nav {
 		display: flex;
 		font-family: "Inter", sans-serif;
 		gap: 8px;
 		padding-block: 4rem;
 	}
-	
-	#hero-text{
+
+	#hero-text {
 		padding-top: 4rem;
 	}
 
-	a, a:visited{
+	a,
+	a:visited {
 		font-weight: 400;
 		color: inherit;
-		opacity: .8;
+		opacity: 0.8;
 		text-decoration: none;
-		transition: font-weight .3s;
+		transition: font-weight 0.3s;
 	}
 
-	span{
-		opacity: .8;
+	span {
+		opacity: 0.8;
 	}
-	
-	a:hover{
+
+	a:hover {
 		font-weight: 600;
 		opacity: 1;
 	}
 	/* /Nav compontent */
 
-	main{
+	main {
 		position: relative;
-		background: 
-		radial-gradient(
-			145.65% 101.72% at 32.26% -1.09%, 
-			#D8A5ED 0%, 
-			#AF95E3 35%, 
-			#7470E2 80%, 
-			#6768E1 100%);
+		background: radial-gradient(
+			145.65% 101.72% at 32.26% -1.09%,
+			#d8a5ed 0%,
+			#af95e3 35%,
+			#7470e2 80%,
+			#6768e1 100%
+		);
 		background-attachment: fixed;
 		background-repeat: no-repeat;
 		font-family: "Gilroy", sans-serif;
@@ -135,20 +130,20 @@ onMount(() => {
 		overflow: hidden;
 	}
 
-	h1{
+	h1 {
 		max-width: 16ch;
 		font-size: 64px;
 		font-weight: 600;
-		font-size: 64px; 
+		font-size: 64px;
 		line-height: 90%;
 	}
 
-	h1 span{
+	h1 span {
 		display: inline-block;
 		opacity: 0;
 	}
 
-	.title{
+	.title {
 		margin-bottom: 0.5rem;
 	}
 
@@ -156,32 +151,33 @@ onMount(() => {
 		width: 100%;
 		max-width: 1280px;
 		margin-inline: auto;
-    	padding-inline: 80px;
+		padding-inline: 80px;
 	}
 
-	.image-wrap{
+	.image-wrap {
 		position: relative;
 		height: 2000px;
-    	perspective: 4000px;
+		perspective: 4000px;
 		max-width: 100%;
-    	perspective-origin: 100% 0;
-	}
-	
-	.in-perspective{
-		transform: translateX(0%) translateY(23%) scale(1) rotateX(47deg) rotateY(31deg) rotate(324deg);
+		perspective-origin: 100% 0;
 	}
 
-	.app{
+	.in-perspective {
+		transform: translateX(0%) translateY(23%) scale(1) rotateX(47deg)
+			rotateY(31deg) rotate(324deg);
+	}
+
+	.app {
 		position: relative;
 		left: 1%;
 		display: flex;
 		gap: 1rem;
-		padding-block: .75rem;
-		padding-inline: .5rem;
+		padding-block: 0.75rem;
+		padding-inline: 0.5rem;
 		width: 1500px;
 		aspect-ratio: 16 / 7;
-		background-color: rgba(255 255 255 / .2);
-		border: 1px solid rgba(255 255 255 / .4);
+		background-color: rgba(255 255 255 / 0.2);
+		border: 1px solid rgba(255 255 255 / 0.4);
 		backdrop-filter: blur(12px);
 		transform-origin: top left;
 		transform-style: preserve-3d;
@@ -191,32 +187,33 @@ onMount(() => {
 		opacity: 0;
 	}
 
-	.sidebar{
+	.sidebar {
 		width: 30%;
-		border-radius: .5rem;
+		border-radius: 0.5rem;
 	}
 
-	.content{
+	.content {
 		width: 100%;
 		background: white;
-		border-radius: .5rem;
+		border-radius: 0.5rem;
 		position: relative;
 		opacity: 0;
 		transform-style: flat;
-	}	
+	}
 
-	.decaeder{
+	.decaeder {
 		position: absolute;
 		top: 1%;
 		left: 8%;
 		width: 150px;
 		z-index: 2;
+		opacity: 0;
 		animation: bounce 4s cubic-bezier(0.65, 0, 0.35, 1) infinite forwards;
-		filter: drop-shadow(1px 15px 10px rgba(184, 111, 206, 0.1))
+		filter: drop-shadow(1px 15px 10px rgba(184, 111, 206, 0.1));
 	}
 
 	@keyframes bounce {
-		50%{
+		50% {
 			transform: translateY(15%);
 		}
 	}
