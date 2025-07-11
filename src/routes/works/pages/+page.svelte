@@ -56,8 +56,8 @@
 		<nav>
 			<a href="/">Alexander Albul</a>
 			<span>/</span>
-			<a href="#">Works</a>
-			<a href="#" style:margin-left="auto">Contact</a>
+			<a href="#w">Works</a>
+			<a href="#c" style:margin-left="auto">Contact</a>
 		</nav>
 	</section>
 	<section id="hero-text">
